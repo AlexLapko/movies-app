@@ -6,9 +6,11 @@ import MovieInner from './components/movieInner/MovieInner'
 import SignIn from './components/auth/signIn/SignIn'
 import SignUp from './components/auth/signUp/SignUp'
 import Header from './components/header/Header'
+import NotFoundPage from './components/notFoundPage/NotFoundPage'
 
 const App = () => {
   // const dispatch = useDispatch()
+  
 
   return (
     <BrowserRouter>
@@ -20,6 +22,7 @@ const App = () => {
             <Route path='/movie/:id' component={MovieInner} />
             <Route path='/signIn' component={SignIn}/>
             <Route path='/signUp' component={SignUp}/>
+            <Route path='*' component={NotFoundPage}/>
             <Redirect to="/" />
           </Switch>
         </div>

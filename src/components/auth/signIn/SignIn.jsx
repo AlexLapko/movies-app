@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../Auth.sass'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 const SignIn = () => {
   const validationSchema = Yup.object({
@@ -15,6 +15,8 @@ const SignIn = () => {
       .required('Email is required'),
   })
 
+  const history = useHistory()
+
   return (
     <Formik
       initialValues={{
@@ -22,7 +24,10 @@ const SignIn = () => {
         email: ''
         }}
         validateOnBlur
-        onSubmit={(values) => { console.log(values) }}
+        onSubmit={(values) => { 
+          console.log(values) 
+          history.push('/');
+        }}
         validationSchema={validationSchema}
     >
       {() => (
@@ -42,10 +47,9 @@ const SignIn = () => {
             <div className="form-btns">
               <button 
                 type="submit"
-                // disabled={!(isValid && dirty)}
-                className="form__btn"
+                className="btn form__btn"
               >Sign in</button>
-              <NavLink to={`/signUp`} className="form__btn">
+              <NavLink to={`/signUp`} className="btn secondary form__btn">
                 Registration
               </NavLink>
             </div>

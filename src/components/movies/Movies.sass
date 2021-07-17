@@ -1,6 +1,5 @@
 .sort
   margin-bottom: 30px
-  margin-left: 15px
   &__title
     display: inline-block
     margin-bottom: 10px
@@ -8,12 +7,12 @@
   display: flex
   flex-wrap: wrap
   justify-content: center
-  margin: 0 -15px
+  margin: 0 -16px
   & .fetching
     width: 150px
     height: 150px
     margin: 30vh auto
-    border: 3px dashed #ccc
+    border: 3px dashed #4090eb
     border-radius: 50%
     animation-name: fetching
     animation-duration: 1s
@@ -31,17 +30,22 @@
   display: flex
   align-items: center
   justify-content: center
-  margin: 20px 0
+  margin: 20px 0 0
   & .page
     display: flex
     align-items: center
     justify-content: center
     width: 40px
     height: 40px
-    border: 1px solid lightgrey
-    border-radius: 50%
+    border: 2px solid #4090eb
+    border-radius: 10px
     margin: 0 10px
+    font-weight: bold
     cursor: pointer
+    transition: color .3s ease, background-color .3s ease
+    &:hover
+      color: #fff
+      background-color: #4090eb
     &.current-page
-      font-weight: bold
-      border: 2px solid grey
+      color: #fff
+      background-color: #4090eb
