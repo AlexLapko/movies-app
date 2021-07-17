@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Movie from './movie/Movie'
 import { getMovies } from '../../actions/movies'
 import './Movies.sass'
-import { setCurrentPage, setCurrentSortBy } from '../../reducers/moviesReducer'
+import { setCurrentPage } from '../../reducers/moviesReducer'
 import { createPages } from '../../utils/pagesCreator'
 import Sort from '../sort/Sort'
 
@@ -26,17 +26,7 @@ const Movies = () => {
 
   return (
     <div>
-      <div className="sort">
-        <span className="sort__title">Sort by: </span>
-        <select className="select" onChange={(e) => dispatch(setCurrentSortBy(e.target.value))}>
-          <option value="" style={{display: 'none'}}>Please select</option>
-          <option value="popularity.desc">Default</option>
-          <option value="vote_count.asc">Vote rating (ascending)</option>
-          <option value="vote_count.desc">Vote rating (descending)</option>
-          <option value="release_date.asc">Release date (ascending)</option>
-          <option value="release_date.desc">Release date (descending)</option>
-        </select>
-      </div>
+      <Sort />
 
       <div className="movies">
         {
@@ -54,7 +44,7 @@ const Movies = () => {
       <div className="pages">
         {
           currentPage !== 1
-          ? 
+          ?
           <Fragment>
             <span className="page" onClick={() => dispatch(setCurrentPage(1))}>&#8249;&#8249;</span>
             <span className="page" onClick={() => dispatch(setCurrentPage(currentPage - 1))}>&#8249;</span>

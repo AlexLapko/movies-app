@@ -1,5 +1,6 @@
 import React from "react";
 import './Header.sass'
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 
@@ -10,7 +11,9 @@ const Header = () => {
           Logo
         </span>
         <div className="auth">
-          <a className="auth__btn" href="/">Sign In / Sign Up</a>
+          <NavLink to={`/signIn`} className="auth__btn">
+            Sign In / Sign Up
+          </NavLink>
         </div>
       </div>
     </div>
