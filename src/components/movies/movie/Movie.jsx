@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import starIcon from '../../../icons/star.svg'
 import './Movie.sass'
 
 const IMG_API = 'https://image.tmdb.org/t/p/w500';
@@ -19,7 +20,12 @@ const Movie = (props) => {
               </span>
             }
             <div className="movie-info">
-              <span className="movie__vote-average">{ movie.vote_average }</span>
+              <span className="movie__vote-average">
+                <span className="movie__star-icon">
+                  <img src={starIcon} alt="" />
+                </span>
+                { movie.vote_average }
+              </span>
               <span className="movie__release_date">{ movie.release_date }</span>
             </div>
           </div>

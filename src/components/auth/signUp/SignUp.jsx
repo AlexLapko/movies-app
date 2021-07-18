@@ -3,8 +3,35 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../Auth.sass'
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { setAuth, setCurrentUser } from '../../../reducers/usersReduser'
 
 const SignUp = () => {
+
+  const dispatch = useDispatch()
+  const users = useSelector(state => state.users.users)
+  const errorMessagesSignUp = useSelector(state => state.users.errorMessagesSignUp)
+  const history = useHistory()
+
+  const submit = (values) => {
+    const user = {}
+    const isUser = users.find(item => item.email === values.email)
+
+    if(!isUser) {
+      user.name = values.name
+      user.secondName = values.secondName
+      user.email = values.email
+      user.password = values.password
+
+      dispatch(setAuth(true))
+      dispatch(setCurrentUser(user.name))
+      users.push(user)
+      history.push('/');
+    } else {
+      alert(errorMessagesSignUp)
+    }
+  }
+
   const validationSchema = Yup.object({
     name: Yup.string()
       .min(6, 'Must be at least 6 characters long.')
@@ -24,8 +51,6 @@ const SignUp = () => {
       .required('Email is required'),
   })
 
-  const history = useHistory()
-
   return (
     <Formik
       initialValues={{
@@ -36,10 +61,7 @@ const SignUp = () => {
         email: ''
         }}
         validateOnBlur
-        onSubmit={(values) => {
-          console.log(values)
-          history.push('/');
-        }}
+        onSubmit={submit}
         validationSchema={validationSchema}
     >
       {({resetForm}) => (

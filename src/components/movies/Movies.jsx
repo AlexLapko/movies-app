@@ -2,9 +2,11 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Movie from './movie/Movie'
 import { getMovies } from '../../actions/movies'
+import { getUsers } from '../../actions/users'
 import './Movies.sass'
 import Sort from '../sort/Sort'
 import Pages from '../pages/Pages'
+import users from '../../dummy_data/users.json'
 
 const Movies = () => {
 
@@ -17,6 +19,12 @@ const Movies = () => {
   useEffect(() => {
     dispatch(getMovies(currentPage, currentSortBy))
   }, [currentPage, currentSortBy])
+
+
+  useEffect(() => {
+    dispatch(getUsers(users))
+  }, [users])
+
 
   return (
     <div>

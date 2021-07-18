@@ -3,8 +3,35 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import '../Auth.sass'
 import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { setAuth, setCurrentUser } from '../../../reducers/usersReduser'
+
+
 
 const SignIn = () => {
+  const dispatch = useDispatch()
+  const users = useSelector(state => state.users.users)
+  const errorMessagesSignIn = useSelector(state => state.users.errorMessagesSignIn)
+
+  const history = useHistory()
+
+  const submit = (values) => {
+    const email = users.find(item => item.email === values.email)
+    const password = users.find(item => item.password === values.password)
+
+    for(let i = 0; i < users.length; i++){
+      if(values.email === users[i].email && values.password === users[i].password) {
+        dispatch(setCurrentUser(users[i].name))
+      }
+    }
+    if(email && password) {
+      dispatch(setAuth(true))
+      history.push('/');
+    } else {
+      alert(errorMessagesSignIn)
+    }
+  }
+
   const validationSchema = Yup.object({
     password: Yup.string()
       .typeError('Should be a string')
@@ -15,8 +42,6 @@ const SignIn = () => {
       .required('Email is required'),
   })
 
-  const history = useHistory()
-
   return (
     <Formik
       initialValues={{
@@ -24,10 +49,7 @@ const SignIn = () => {
         email: ''
         }}
         validateOnBlur
-        onSubmit={(values) => { 
-          console.log(values) 
-          history.push('/');
-        }}
+        onSubmit={submit}
         validationSchema={validationSchema}
     >
       {() => (
