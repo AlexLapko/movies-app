@@ -19,8 +19,7 @@ const App = () => {
             <Route path='/movie/:id' component={MovieInner} />
             <Route path='/signIn' component={SignIn}/>
             <Route path='/signUp' component={SignUp}/>
-            <Route path='*' component={NotFoundPage}/>
-            <Redirect to="/" />
+            <Route component={NotFoundPage}/>
           </Switch>
         </div>
       </div>
