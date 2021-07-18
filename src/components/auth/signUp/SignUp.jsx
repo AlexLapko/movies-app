@@ -1,8 +1,8 @@
-import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import React from 'react'
+import { Formik, Field, Form, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 import '../Auth.sass'
-import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAuth, setCurrentUser } from '../../../reducers/usersReduser'
 
@@ -26,7 +26,7 @@ const SignUp = () => {
       dispatch(setAuth(true))
       dispatch(setCurrentUser(user.name))
       users.push(user)
-      history.push('/');
+      history.push('/')
     } else {
       alert(errorMessagesSignUp)
     }
@@ -111,4 +111,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignUp

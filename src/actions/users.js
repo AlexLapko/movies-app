@@ -5,4 +5,3 @@ export const getUsers = (users) => {
     dispatch(setUsers(users))
   }
 }
-

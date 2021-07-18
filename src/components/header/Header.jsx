@@ -1,10 +1,9 @@
-import React from "react";
+import React from "react"
 import './Header.sass'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 import homeIcon from '../../icons/home.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAuth, setCurrentUser } from '../../reducers/usersReduser'
-
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -41,4 +40,4 @@ const Header = () => {
   );
 }
 
-export default Header;
+export default Header

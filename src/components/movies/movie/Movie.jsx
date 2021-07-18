@@ -1,9 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 import starIcon from '../../../icons/star.svg'
 import './Movie.sass'
 
-const IMG_API = 'https://image.tmdb.org/t/p/w500';
+const IMG_API = 'https://image.tmdb.org/t/p/w500'
 
 const Movie = (props) => {
   const movie = props.movie

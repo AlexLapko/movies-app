@@ -1,4 +1,3 @@
-// import { useDispatch } from 'react-redux'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import Movies from './components/movies/Movies'
 import './App.sass'
@@ -9,8 +8,6 @@ import Header from './components/header/Header'
 import NotFoundPage from './components/notFoundPage/NotFoundPage'
 
 const App = () => {
-  // const dispatch = useDispatch()
-  
 
   return (
     <BrowserRouter>

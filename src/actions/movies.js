@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 import {setMovies, setIsFetching} from '../reducers/moviesReducer'
 
 export const getMovies = (currentPage, currentSortBy) => {

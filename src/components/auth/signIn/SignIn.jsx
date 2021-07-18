@@ -1,12 +1,10 @@
-import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import React from 'react'
+import { Formik, Field, Form, ErrorMessage } from 'formik'
+import * as Yup from 'yup'
 import '../Auth.sass'
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setAuth, setCurrentUser } from '../../../reducers/usersReduser'
-
-
 
 const SignIn = () => {
   const dispatch = useDispatch()
@@ -26,7 +24,7 @@ const SignIn = () => {
     }
     if(email && password) {
       dispatch(setAuth(true))
-      history.push('/');
+      history.push('/')
     } else {
       alert(errorMessagesSignIn)
     }
@@ -82,4 +80,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignIn

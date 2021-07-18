@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getCurrentMovie } from '../../actions/movies'
 import './MovieInner.sass'
 
-const IMG_API = 'https://image.tmdb.org/t/p/w500';
+const IMG_API = 'https://image.tmdb.org/t/p/w500'
 
 const MovieInner = () => {
   const {id} = useParams()
