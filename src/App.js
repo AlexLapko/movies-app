@@ -1,4 +1,4 @@
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Movies from './components/movies/Movies'
 import './App.sass'
 import MovieInner from './components/movieInner/MovieInner'
